@@ -45,28 +45,28 @@ public class BeaconManager : IBeaconManager
       PlaceBeaconsToNearestBase(pathsToPlaceBeacon, allPathsForBaseCells);
       return;
 
-      const int beaconStrength = 1;
-      foreach (KeyValuePair<ActualCellInfo, IEnumerable<CellPath>> cellPathsForBase in pathsToPlaceBeacon)
-      {
-         ActualCellInfo baseCell = cellPathsForBase.Key;
+      //const int beaconStrength = 1;
+      //foreach (KeyValuePair<ActualCellInfo, IEnumerable<CellPath>> cellPathsForBase in pathsToPlaceBeacon)
+      //{
+      //   ActualCellInfo baseCell = cellPathsForBase.Key;
 
-         IEnumerable<CellPath> cellPathsToBeacons = cellPathsForBase.Value;
-         if (cellInfoPerTurn.IsDuplicatedBeaconCommandPossible)
-         {
-            foreach (CellPath cellPathToBeacon in cellPathsToBeacons)
-            {
-               ActualCellInfo targetCell = cellPathToBeacon.ActualCell2;
-               foreach (ActualCellInfo cellToPlaceBeacon in cellPathToBeacon.CellsAlongPath)
-               {
-                  actionManager.PlaceBeacon(cellToPlaceBeacon.CellId, beaconStrength);
-               }
-            }
-         }
-         else
-         {
-            PlaceBeaconsForAllCell(cellPathsToBeacons, beaconStrength);
-         }
-      }
+      //   IEnumerable<CellPath> cellPathsToBeacons = cellPathsForBase.Value;
+      //   if (cellInfoPerTurn.IsDuplicatedBeaconCommandPossible)
+      //   {
+      //      foreach (CellPath cellPathToBeacon in cellPathsToBeacons)
+      //      {
+      //         ActualCellInfo targetCell = cellPathToBeacon.ActualCell2;
+      //         foreach (ActualCellInfo cellToPlaceBeacon in cellPathToBeacon.CellsAlongPath)
+      //         {
+      //            actionManager.PlaceBeacon(cellToPlaceBeacon.CellId, beaconStrength);
+      //         }
+      //      }
+      //   }
+      //   else
+      //   {
+      //      PlaceBeaconsForAllCell(cellPathsToBeacons, beaconStrength);
+      //   }
+      //}
    }
 
    private void PlaceBeaconsForAllCell(IEnumerable<CellPath> cellPathsToBeacons, int beaconStrength)
@@ -74,8 +74,17 @@ public class BeaconManager : IBeaconManager
       IEnumerable<ActualCellInfo> allCellsToPlaceBeacon = cellPathsToBeacons.SelectMany(x => x.CellsAlongPath).Distinct(new ActualCellInfoEqualityComparer());
       foreach (ActualCellInfo cellInfoToPlaceBeacon in allCellsToPlaceBeacon)
       {
-         actionManager.PlaceBeacon(cellInfoToPlaceBeacon.CellId, beaconStrength);
-      }
+            var neighborCells = cellInfoToPlaceBeacon.Neighbors.Select(x => x.Cell);
+            foreach (var neighborCell in neighborCells)
+            {
+                if (ResourceType.All.HasFlag(neighborCell.Type))
+                {
+                    actionManager.PlaceBeacon(neighborCell.CellId, beaconStrength);
+                }
+            }
+
+            actionManager.PlaceBeacon(cellInfoToPlaceBeacon.CellId, beaconStrength);
+        }
    }
 
    private void PlaceBeaconsToNearestBase(IDictionary<ActualCellInfo, IEnumerable<CellPath>> pathsToPlaceBeacon, IDictionary<ActualCellInfo, IEnumerable<CellPath>> allPathsForBaseCells)

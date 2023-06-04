@@ -30,7 +30,7 @@ public class CrystalHarvestingGame : ICrystalHarvestingGame
       IExtendedCellInfoPerTurnReader extendedCellInfoPerTurnReader = new ExtendedCellInfoPerTurnReader(turnInfoReader, cellAnalyzer);
       IMaximumHarvestCollectionCalculator maximumHarvestCollectionCalculator = new MaximumHarvestCollectionCalculator(maximumHarvestCalculator, antCounter);
       IMostHarvestingCollectionCalculator mostHarvestingCalculator = new MostHarvestingCalculator(maximumHarvestCollectionCalculator);
-      IBeaconPathFinder beaconPathFinder = new BeaconPathFinder(antCounter, resourceReachPathFinder, mostHarvestingCalculator, maximumHarvestCollectionCalculator);
+      IBeaconPathFinder beaconPathFinder = new BeaconPathFinder(antCounter, resourceReachPathFinder, mostHarvestingCalculator);
       IBeaconManager beaconManager = new BeaconManager(actionManager);
 
       IGameLogicManager gameLogicManager = new GameLogicManager(actionManager, pathCalculator,  beaconPathFinder, beaconManager);

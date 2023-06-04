@@ -17,8 +17,6 @@ public class BeaconPathFinder : IBeaconPathFinder
 
    private readonly IAntCounter antCounter;
 
-   private readonly IMaximumHarvestCollectionCalculator maximumHarvestCollectionCalculator;
-
    private readonly IMostHarvestingCollectionCalculator mostHarvestingCalculator;
 
    private readonly IResourceReachPathFinder resourceReachPathFinder;
@@ -27,13 +25,11 @@ public class BeaconPathFinder : IBeaconPathFinder
 
    #region Constructors and Destructors
 
-   public BeaconPathFinder(IAntCounter antCounter, IResourceReachPathFinder resourceReachPathFinder, IMostHarvestingCollectionCalculator mostHarvestingCalculator,
-      IMaximumHarvestCollectionCalculator maximumHarvestCollectionCalculator)
+   public BeaconPathFinder(IAntCounter antCounter, IResourceReachPathFinder resourceReachPathFinder, IMostHarvestingCollectionCalculator mostHarvestingCalculator)
    {
       this.antCounter = antCounter ?? throw new ArgumentNullException(nameof(antCounter));
       this.resourceReachPathFinder = resourceReachPathFinder ?? throw new ArgumentNullException(nameof(resourceReachPathFinder));
       this.mostHarvestingCalculator = mostHarvestingCalculator ?? throw new ArgumentNullException(nameof(mostHarvestingCalculator));
-      this.maximumHarvestCollectionCalculator = maximumHarvestCollectionCalculator ?? throw new ArgumentNullException(nameof(maximumHarvestCollectionCalculator));
    }
 
    #endregion
@@ -106,7 +102,7 @@ public class BeaconPathFinder : IBeaconPathFinder
       IEnumerable<MaximumHarvestCellPath> paths = maximumSelectedResourceType;
       if (!paths.Any())
       {
-         paths = maximumHarvestCollectionCalculator.CalculateMaximumHarvestForCellPaths(cellInfoPerTurn, resourceCellPaths);
+         paths = mostHarvestingCalculator.CalculateMaximumHarvestForCellPaths(cellInfoPerTurn, resourceCellPaths, resourceType: ResourceType.All);
          return SelectMostHarvestingForResources(paths, myAntCount);
       }
 

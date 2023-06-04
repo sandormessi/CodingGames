@@ -24,8 +24,6 @@ internal static class Program
       Console.WriteLine("End of program.");
       Console.ReadKey();
 
-      // TODO Take all bases into consideration (ants are divided between them at start)
-      // TODO When count the maximum harvest take available resource count into consideration
       // TODO Most difficult: do something with battle ant chains!!!
    }
 

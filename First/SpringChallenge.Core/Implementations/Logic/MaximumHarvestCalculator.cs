@@ -33,7 +33,7 @@ public class MaximumHarvestCalculator : IMaximumHarvestCalculator
 
       IEnumerable<CellPath> pathToHarvest = cellPathsToCheck as CellPath[] ?? cellPathsToCheck.ToArray();
 
-      ExtendedCellPathWithCellPathItem[] paths = pathToHarvest
+      IReadOnlyList<ExtendedCellPathWithCellPathItem> paths = pathToHarvest
          .Select(x => new ExtendedCellPathWithCellPathItem(x.CellsAlongPath.Select(y => new CellPathItem(y))))
          .ToArray();
 
@@ -49,14 +49,58 @@ public class MaximumHarvestCalculator : IMaximumHarvestCalculator
 
       int maximumResourceToHarvest = cellPathItems.Sum(x => x.AntCount);
 
-      return new MaximumHarvestCellPath(pathToHarvest, maximumResourceToHarvest);
+      int unusedAnt = 
+      return new MaximumHarvestCellPath(pathToHarvest, maximumResourceToHarvest, unusedAnt);
    }
 
    #endregion
 
    #region Methods
 
-   private static void CountMaxHarvest(int antsRemained, int distance, ExtendedCellPathWithCellPathItem[] paths)
+    private int CountUnusedAnt(ExtendedCellPathWithCellPathItem extendedCellPath)
+    {
+        int unusedAnts = 0;
+        var maxAntAlongPath = extendedCellPath.CellsAlongPath.Max(x => x.AntCount);
+        IReadOnlyList<CellPathItem> cellPathItems = extendedCellPath.CellsAlongPath.Reverse().ToArray();
+        for (int i = 0; i < cellPathItems.Count; i++)
+        {
+            CellPathItem cellPathItem = cellPathItems[i];
+
+            if (cellPathItem.Cell.Type.HasFlag(ResourceType.Empty) && cellPathItem.AntCount > maxAntAlongPath)
+            {
+                int unusedAntInCell = cellPathItem.AntCount - maxAntAlongPath;
+                var cellsWithUnusedAnts = cellPathItems.Skip(i).TakeWhile(x => x.Cell.Type.HasFlag(ResourceType.Empty)).ToArray();
+                foreach (var cell in cellsWithUnusedAnts)
+                {
+                    cell.AntCount -= unusedAntInCell;
+                }
+
+                unusedAnts += cellsWithUnusedAnts.Length * unusedAntInCell;
+            }
+        }
+
+        return unusedAnts;
+    }
+
+    private int CountUnusedAnt2(ExtendedCellPathWithCellPathItem extendedCellPath)
+    {
+        int unusedAnts = 0;
+        var maxAntAlongPath = extendedCellPath.CellsAlongPath.Max(x => x.AntCount);
+        IReadOnlyList<CellPathItem> cellPathItems = extendedCellPath.CellsAlongPath.Reverse().ToArray();
+        for (int i = 0; i < cellPathItems.Count; i++)
+        {
+            CellPathItem cellPathItem = cellPathItems[i];
+
+            var actualAntCount = cellPathItem.AntCount;
+            while (cellPathItem.AntCount == actualAntCount)
+            {
+
+            }
+        }
+
+        return unusedAnts;
+    }
+    private static void CountMaxHarvest(int antsRemained, int distance, IReadOnlyList<ExtendedCellPathWithCellPathItem> paths)
    {
       const int change = 1;
       while (antsRemained >= 0)
@@ -70,7 +114,7 @@ public class MaximumHarvestCalculator : IMaximumHarvestCalculator
                {
                   continue;
                }
-
+               
                CellPathItem cellPathItem = cellPath.CellsAlongPath[i];
                if (itemsToPlaceAnt.Any(x => x.Cell.CellId == cellPathItem.Cell.CellId))
                {
@@ -112,6 +156,8 @@ public class MaximumHarvestCalculator : IMaximumHarvestCalculator
       public int AntCount { get; set; }
 
       public ActualCellInfo Cell { get; }
+
+      public int UnusedAnts { get; set; }
 
       #endregion
    }
