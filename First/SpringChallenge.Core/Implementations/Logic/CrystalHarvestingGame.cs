@@ -40,7 +40,7 @@ public class CrystalHarvestingGame : ICrystalHarvestingGame
       var round = 1;
       while (true)
       {
-         CellInfoPerTurn perTurnInfo = extendedCellInfoPerTurnReader.ReadCellInfoPerTurn(initialGameInfo, round);
+         CellInfoPerTurn perTurnInfo = turnInfoReader.ReadCellInfoPerTurn(initialGameInfo, round);
 
          gameLogicManager.ExecuteLogic(perTurnInfo);
 
