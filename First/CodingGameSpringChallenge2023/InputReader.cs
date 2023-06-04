@@ -11,7 +11,7 @@ public class InputReader2 : IInputReader
    private readonly IActionManager actionManager;
 
    private static Queue<string> inputQueue;
-   public InputReader2(IActionManager actionManager)
+   internal InputReader2(IActionManager actionManager)
    {
       this.actionManager = actionManager ?? throw new ArgumentNullException(nameof(actionManager));
       
