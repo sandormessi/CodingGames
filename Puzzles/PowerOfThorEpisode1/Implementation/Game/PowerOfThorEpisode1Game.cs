@@ -1,19 +1,23 @@
 ﻿namespace PowerOfThorEpisode1.Implementation.Game;
 
 using System;
-using CodingGames.Core.Abstraction;
-using PowerOfThorEpisode1.Abstraction.Game;
+using PowerOfThor.Core.Abstraction.Game;
+using PowerOfThor.Core.Abstraction.InputReading;
 
-public class PowerOfThorEpisode1Game : IPowerOfThorEpisode1Game
+public class PowerOfThorEpisode1Game : IPowerOfThorGame
 {
-    private readonly IInputReader inputReader;
+    private readonly IGameDataReader gameDataReader;
 
-    public PowerOfThorEpisode1Game(IInputReader inputReader)
+    public PowerOfThorEpisode1Game(IGameDataReader gameDataReader)
     {
-        this.inputReader = inputReader ?? throw new ArgumentNullException(nameof(inputReader));
+        this.gameDataReader = gameDataReader ?? throw new ArgumentNullException(nameof(gameDataReader));
     }
 
     public void Execute()
     {
+        while (true)
+        {
+            var gameData = gameDataReader.ReadGameData();
+        }
     }
 }
