@@ -6,10 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Implementation\Game\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\CodingGames.Core\CodingGames.Core.csproj" />
   </ItemGroup>
 
