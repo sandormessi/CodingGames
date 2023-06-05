@@ -49,7 +49,7 @@ public class MaximumHarvestCalculator : IMaximumHarvestCalculator
 
       int maximumResourceToHarvest = cellPathItems.Sum(x => x.AntCount);
 
-      int unusedAnt = 
+      int unusedAnt = 0; 
       return new MaximumHarvestCellPath(pathToHarvest, maximumResourceToHarvest, unusedAnt);
    }
 

@@ -1,4 +1,6 @@
-﻿namespace SpringChallenge.Core.Implementations.Logic;
+﻿using CodingGames.Core.Abstraction;
+
+namespace SpringChallenge.Core.Implementations.Logic;
 
 using SpringChallenge.Core.Abstractions.ActionManagement;
 using SpringChallenge.Core.Abstractions.GameInfo.Initial;
@@ -19,7 +21,7 @@ public class CrystalHarvestingGame : ICrystalHarvestingGame
       IResourcePathCounter resourcePathCounter = new ResourcePathCounter();
       IResourceSelector resourceSelector = new ResourceSelector();
       IActionManager actionManager = new ActionManager();
-      IInputReader inputReader = new InputReader();
+      IInputReader inputReader = new CodingGames.Core.Implementation.InputReader();
       IAntCounter antCounter = new AntCounter();
 
       IInitialGameInputReader initialGameInfoReader = new InitialGameInputReader(inputReader);

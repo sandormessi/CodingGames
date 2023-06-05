@@ -1,4 +1,6 @@
-﻿namespace SpringChallenge.Core.Implementations.InputReader;
+﻿using CodingGames.Core.Abstraction;
+
+namespace SpringChallenge.Core.Implementations.InputReader;
 
 using System;
 using System.Collections.Generic;
