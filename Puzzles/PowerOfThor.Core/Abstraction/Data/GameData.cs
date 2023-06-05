@@ -11,5 +11,6 @@ public class GameData
     }
 
     public InitialGameData InitialGameData { get; }
+
     public GameDataPerRound GameDataPerRound { get; }
 }
