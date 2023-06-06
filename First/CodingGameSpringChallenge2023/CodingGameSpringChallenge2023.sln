@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpringChallenge.Core", "..\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Puzzles", "Puzzles", "{DAA7389D-37EC-4266-8D35-C1C8A14838F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerOfThorEpisode1", "..\..\Puzzles\PowerOfThorEpisode1\PowerOfThorEpisode1.csproj", "{02034923-2D54-456A-A213-B57D3A647161}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerOfThorEpisode1", "..\..\Puzzles\PowerOfThorEpisode1\PowerOfThorEpisode1.csproj", "{02034923-2D54-456A-A213-B57D3A647161}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingGames.Core", "..\..\CodingGames.Core\CodingGames.Core.csproj", "{BF2AB6FB-AD8F-454B-A87E-C1823C5475B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodingGames.Core", "..\..\CodingGames.Core\CodingGames.Core.csproj", "{BF2AB6FB-AD8F-454B-A87E-C1823C5475B1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Challenges", "Challenges", "{664BDE18-3FAA-4CE5-BD0F-F0F949FE1355}"
 EndProject
@@ -19,9 +19,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PowerOfThor", "PowerOfThor"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Episode1", "Episode1", "{29931C81-D5DD-49EF-BCB3-880CC0AD7F66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerOfThor.Core", "..\..\Puzzles\PowerOfThor.Core\PowerOfThor.Core.csproj", "{03CC8051-B7A7-4F05-A592-2518C9117A2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerOfThor.Core", "..\..\Puzzles\PowerOfThor.Core\PowerOfThor.Core.csproj", "{03CC8051-B7A7-4F05-A592-2518C9117A2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground", "..\..\Playground\Playground.csproj", "{78F00997-4F92-452E-9041-A2AD0B214ACB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Playground", "..\..\Playground\Playground.csproj", "{78F00997-4F92-452E-9041-A2AD0B214ACB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Episode2", "Episode2", "{B8D599DC-0B87-4C37-A163-DE5C69478FA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerOfThorEpisode2", "..\..\Puzzles\PowerOfThorEpisode2\PowerOfThorEpisode2.csproj", "{41BDF786-9F3C-4FFC-91BB-C1AEED237D3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +57,10 @@ Global
 		{78F00997-4F92-452E-9041-A2AD0B214ACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78F00997-4F92-452E-9041-A2AD0B214ACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78F00997-4F92-452E-9041-A2AD0B214ACB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41BDF786-9F3C-4FFC-91BB-C1AEED237D3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41BDF786-9F3C-4FFC-91BB-C1AEED237D3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41BDF786-9F3C-4FFC-91BB-C1AEED237D3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41BDF786-9F3C-4FFC-91BB-C1AEED237D3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +71,8 @@ Global
 		{87D996D9-D3C7-4360-AD52-B33F384F0BFF} = {DAA7389D-37EC-4266-8D35-C1C8A14838F9}
 		{29931C81-D5DD-49EF-BCB3-880CC0AD7F66} = {87D996D9-D3C7-4360-AD52-B33F384F0BFF}
 		{03CC8051-B7A7-4F05-A592-2518C9117A2D} = {87D996D9-D3C7-4360-AD52-B33F384F0BFF}
+		{B8D599DC-0B87-4C37-A163-DE5C69478FA0} = {87D996D9-D3C7-4360-AD52-B33F384F0BFF}
+		{41BDF786-9F3C-4FFC-91BB-C1AEED237D3D} = {B8D599DC-0B87-4C37-A163-DE5C69478FA0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {662BDAFD-5DDA-4227-A270-9C51AD81E42F}
