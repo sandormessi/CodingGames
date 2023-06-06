@@ -17,10 +17,10 @@ public class GameDataReader : IGameDataReader
             gameDataPerRoundReader ?? throw new ArgumentNullException(nameof(gameDataPerRoundReader));
     }
 
-    public GameData ReadGameData()
+    public GameData ReadGameData(int round)
     {
         var initialGameData = initialGameDataReader.ReadInitialGameData();
-        var gameDataPerRound = gameDataPerRoundReader.ReadGameDataPerRound();
+        var gameDataPerRound = gameDataPerRoundReader.ReadGameDataPerRound(round);
 
         return new GameData(initialGameData, gameDataPerRound);
     }

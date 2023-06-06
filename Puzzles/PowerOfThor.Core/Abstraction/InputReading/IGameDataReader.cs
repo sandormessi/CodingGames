@@ -4,5 +4,5 @@ using Data;
 
 public interface IGameDataReader
 {
-    GameData ReadGameData();
+    GameData ReadGameData(int round);
 }

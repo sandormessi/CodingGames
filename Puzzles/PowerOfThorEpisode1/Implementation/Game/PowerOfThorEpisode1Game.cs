@@ -23,10 +23,13 @@ public class PowerOfThorEpisode1Game : IPowerOfThorGame
         IGameDataReader gameDataReader = new GameDataReader(initialGameDataReader, gameDataPerRoundReader);
         IGameLogicManager gameLogicManager = new GameLogicManager(outputManager, coordinateDirectionCalculator);
 
+        int round = 1;
         while (true)
         {
-            GameData gameData = gameDataReader.ReadGameData();
+            GameData gameData = gameDataReader.ReadGameData(round);
             gameLogicManager.Execute(gameData);
+
+            round++;
         }
     }
 }
