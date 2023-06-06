@@ -1,4 +1,6 @@
-﻿namespace PowerOfThorEpisode1.Implementation.Game;
+﻿using System.Threading;
+
+namespace PowerOfThorEpisode1.Implementation.Game;
 
 using CodingGames.Core.Abstraction;
 using CodingGames.Core.Implementation;
@@ -24,12 +26,17 @@ public class PowerOfThorEpisode1Game : IPowerOfThorGame
         IGameLogicManager gameLogicManager = new GameLogicManager(outputManager, coordinateDirectionCalculator);
 
         int round = 1;
+
+        GameData gameData = gameDataReader.ReadGameData(round);
+
+        var lastPosition = gameData.InitialGameData.ThorPosition;
         while (true)
         {
-            GameData gameData = gameDataReader.ReadGameData(round);
-            gameLogicManager.Execute(gameData);
-
+            var actualMovement = gameLogicManager.Execute(gameData, lastPosition);
+            lastPosition = actualMovement.ActualPosition;
             round++;
+            
+            gameData = gameDataReader.ReadGameData(round);
         }
     }
 }

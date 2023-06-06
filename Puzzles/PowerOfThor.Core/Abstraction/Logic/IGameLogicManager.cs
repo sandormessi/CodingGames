@@ -4,5 +4,5 @@ using Data;
 
 public interface IGameLogicManager
 {
-    void Execute(GameData gameData);
+    ActualMovement Execute(GameData gameData, Coordinate2D lastPosition);
 }

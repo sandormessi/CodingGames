@@ -19,7 +19,7 @@ public class GameLogicManager : IGameLogicManager
                                              throw new ArgumentNullException(nameof(coordinateDirectionCalculator));
     }
 
-    public void Execute(GameData gameData)
+    public ActualMovement Execute(GameData gameData, Coordinate2D lastPosition)
     {
         if (gameData == null)
         {
@@ -28,10 +28,10 @@ public class GameLogicManager : IGameLogicManager
 
         var initialGameData = gameData.InitialGameData;
 
-        var direction =
-            coordinateDirectionCalculator.CalculateDirectionOfCoordinates(initialGameData.ThorPosition,
-                initialGameData.LightPosition);
+        var actualMovement = coordinateDirectionCalculator.CalculateDirectionOfCoordinates(lastPosition, initialGameData.LightPosition);
 
-        outputManager.MoveThor(direction);
+        outputManager.MoveThor(actualMovement.Direction);
+
+        return actualMovement;
     }
 }
