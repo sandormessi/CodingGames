@@ -1,8 +1,6 @@
 ﻿namespace PowerOfThor.Core.Abstraction.InputReading;
 
-using Data;
-
-public interface IGameDataReader
+public interface IGameDataReader<out TGameData>
 {
-    GameData ReadGameData(int round);
+    TGameData ReadGameData(int round);
 }

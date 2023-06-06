@@ -11,5 +11,6 @@ public class ActualMovement
     }
 
     public Directions Direction { get; }
+
     public Coordinate2D ActualPosition { get; }
 }

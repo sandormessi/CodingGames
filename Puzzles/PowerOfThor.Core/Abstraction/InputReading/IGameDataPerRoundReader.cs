@@ -1,8 +1,6 @@
-﻿using PowerOfThor.Core.Abstraction.Data;
+﻿namespace PowerOfThor.Core.Abstraction.InputReading;
 
-namespace PowerOfThor.Core.Abstraction.InputReading;
-
-public interface IGameDataPerRoundReader
+public interface IGameDataPerRoundReader<out TGameDataPerRound>
 {
-    GameDataPerRound ReadGameDataPerRound(int round);
+    TGameDataPerRound ReadGameDataPerRound(int round);
 }

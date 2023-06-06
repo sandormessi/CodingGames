@@ -2,7 +2,7 @@
 
 using Data;
 
-public interface IGameLogicManager
+public interface IGameLogicManager<in TGameData, out TAction> 
 {
-    ActualMovement Execute(GameData gameData, Coordinate2D lastPosition);
+    TAction Execute(TGameData gameData, Coordinate2D lastPosition);
 }

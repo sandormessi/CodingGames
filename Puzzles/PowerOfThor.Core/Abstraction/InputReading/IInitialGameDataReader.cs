@@ -1,8 +1,6 @@
 ﻿namespace PowerOfThor.Core.Abstraction.InputReading;
 
-using Data;
-
-public interface IInitialGameDataReader
+public interface IInitialGameDataReader<out TInitialGameData>
 {
-    InitialGameData ReadInitialGameData();
+    TInitialGameData ReadInitialGameData();
 }
