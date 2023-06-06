@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Episode1", "Episode1", "{29
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerOfThor.Core", "..\..\Puzzles\PowerOfThor.Core\PowerOfThor.Core.csproj", "{03CC8051-B7A7-4F05-A592-2518C9117A2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground", "..\..\Playground\Playground.csproj", "{78F00997-4F92-452E-9041-A2AD0B214ACB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{03CC8051-B7A7-4F05-A592-2518C9117A2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03CC8051-B7A7-4F05-A592-2518C9117A2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03CC8051-B7A7-4F05-A592-2518C9117A2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78F00997-4F92-452E-9041-A2AD0B214ACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78F00997-4F92-452E-9041-A2AD0B214ACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78F00997-4F92-452E-9041-A2AD0B214ACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78F00997-4F92-452E-9041-A2AD0B214ACB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
