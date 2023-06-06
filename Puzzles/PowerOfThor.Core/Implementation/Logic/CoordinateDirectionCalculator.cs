@@ -13,7 +13,7 @@ public class CoordinateDirectionCalculator : ICoordinateDirectionCalculator
         new[] { Directions.SW, Directions.S, Directions.SE }
     };
 
-    public Directions CalculateDirectionOfCoordinates(Coordinate2D coordinate1, Coordinate2D coordinate2)
+    public ActualMovement CalculateDirectionOfCoordinates(Coordinate2D coordinate1, Coordinate2D coordinate2)
     {
         if (coordinate1 == null)
         {
@@ -40,6 +40,7 @@ public class CoordinateDirectionCalculator : ICoordinateDirectionCalculator
         x -= signOfY;
         y -= signOfX;
 
-        return directions[x][y];
+        Coordinate2D actualPosition = null;
+        return new ActualMovement(directions[x][y], actualPosition);
     }
 }
