@@ -4,5 +4,5 @@ namespace PowerOfThor.Core.Abstraction.InputReading;
 
 public interface IGameDataPerRoundReader
 {
-    GameDataPerRound ReadGameDataPerRound();
+    GameDataPerRound ReadGameDataPerRound(int round);
 }

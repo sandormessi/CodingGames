@@ -1,10 +1,11 @@
 ﻿namespace PowerOfThor.Core.Abstraction.Data;
 
+using CodingGames.Core.Abstraction.Data;
 using System;
 
-public class GameDataPerRound
+public class GameDataPerRound: GameDataPerRoundBase
 {
-    public GameDataPerRound(int remainingTurns)
+    public GameDataPerRound(int remainingTurns, int round) : base(round)
     {
         if (remainingTurns < 0)
         {

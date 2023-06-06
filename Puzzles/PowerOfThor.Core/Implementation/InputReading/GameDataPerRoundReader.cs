@@ -14,11 +14,11 @@ public class GameDataPerRoundReader : IGameDataPerRoundReader
         this.inputReader = inputReader ?? throw new ArgumentNullException(nameof(inputReader));
     }
 
-    public GameDataPerRound ReadGameDataPerRound()
+    public GameDataPerRound ReadGameDataPerRound(int round)
     {
         var input = inputReader.ReadInput();
         var inputData = int.Parse(input);
 
-        return new GameDataPerRound(inputData);
+        return new GameDataPerRound(inputData, round);
     }
 }
