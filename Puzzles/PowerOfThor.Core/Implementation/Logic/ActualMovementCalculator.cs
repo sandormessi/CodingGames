@@ -28,8 +28,8 @@ public class ActualMovementCalculator : IActualMovementCalculator
         var startPoint = coordinate1;
         var endPoint = coordinate2;
 
-        var xDistance = startPoint.X - endPoint.Y;
-        var yDistance = startPoint.Y - endPoint.X;
+        var xDistance = startPoint.X - endPoint.X;
+        var yDistance = startPoint.Y - endPoint.Y;
 
         int x = 1;
         int y = 1;
@@ -40,7 +40,7 @@ public class ActualMovementCalculator : IActualMovementCalculator
         x -= signOfY;
         y -= signOfX;
 
-        Coordinate2D actualPosition = null;
+        Coordinate2D actualPosition = new(coordinate1.X - signOfX, coordinate1.Y - signOfY);
         return new ActualMovement(directions[x][y], actualPosition);
     }
 }
