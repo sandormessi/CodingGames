@@ -4,7 +4,7 @@ using System;
 using Abstraction.Data;
 using PowerOfThor.Core.Abstraction.Logic;
 
-public class CoordinateDirectionCalculator : ICoordinateDirectionCalculator
+public class ActualMovementCalculator : IActualMovementCalculator
 {
     private static readonly Directions[][] directions =
     {
@@ -13,7 +13,7 @@ public class CoordinateDirectionCalculator : ICoordinateDirectionCalculator
         new[] { Directions.SW, Directions.S, Directions.SE }
     };
 
-    public ActualMovement CalculateDirectionOfCoordinates(Coordinate2D coordinate1, Coordinate2D coordinate2)
+    public ActualMovement CalculateActualMovement(Coordinate2D coordinate1, Coordinate2D coordinate2)
     {
         if (coordinate1 == null)
         {

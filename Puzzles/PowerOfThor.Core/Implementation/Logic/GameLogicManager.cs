@@ -9,14 +9,14 @@ public class GameLogicManager : IGameLogicManager
 {
     private readonly IOutputManager outputManager;
 
-    private readonly ICoordinateDirectionCalculator coordinateDirectionCalculator;
+    private readonly IActualMovementCalculator actualMovementCalculator;
 
     public GameLogicManager(IOutputManager outputManager,
-        ICoordinateDirectionCalculator coordinateDirectionCalculator)
+        IActualMovementCalculator actualMovementCalculator)
     {
         this.outputManager = outputManager ?? throw new ArgumentNullException(nameof(outputManager));
-        this.coordinateDirectionCalculator = coordinateDirectionCalculator ??
-                                             throw new ArgumentNullException(nameof(coordinateDirectionCalculator));
+        this.actualMovementCalculator = actualMovementCalculator ??
+                                             throw new ArgumentNullException(nameof(actualMovementCalculator));
     }
 
     public ActualMovement Execute(GameData gameData, Coordinate2D lastPosition)
@@ -28,7 +28,7 @@ public class GameLogicManager : IGameLogicManager
 
         var initialGameData = gameData.InitialGameData;
 
-        var actualMovement = coordinateDirectionCalculator.CalculateDirectionOfCoordinates(lastPosition, initialGameData.LightPosition);
+        var actualMovement = actualMovementCalculator.CalculateActualMovement(lastPosition, initialGameData.LightPosition);
 
         outputManager.MoveThor(actualMovement.Direction);
 

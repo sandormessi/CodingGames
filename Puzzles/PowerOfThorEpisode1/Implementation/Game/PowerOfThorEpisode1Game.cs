@@ -1,6 +1,4 @@
-﻿using System.Threading;
-
-namespace PowerOfThorEpisode1.Implementation.Game;
+﻿namespace PowerOfThorEpisode1.Implementation.Game;
 
 using CodingGames.Core.Abstraction;
 using CodingGames.Core.Implementation;
@@ -20,10 +18,10 @@ public class PowerOfThorEpisode1Game : IPowerOfThorGame
         IOutputManager outputManager = new OutputManager();
         IInitialGameDataReader initialGameDataReader = new InitialGameDataReader(inputReader);
         IGameDataPerRoundReader gameDataPerRoundReader = new GameDataPerRoundReader(inputReader);
-        ICoordinateDirectionCalculator coordinateDirectionCalculator = new CoordinateDirectionCalculator();
+        IActualMovementCalculator actualMovementCalculator = new ActualMovementCalculator();
 
         IGameDataReader gameDataReader = new GameDataReader(initialGameDataReader, gameDataPerRoundReader);
-        IGameLogicManager gameLogicManager = new GameLogicManager(outputManager, coordinateDirectionCalculator);
+        IGameLogicManager gameLogicManager = new GameLogicManager(outputManager, actualMovementCalculator);
 
         int round = 1;
 
