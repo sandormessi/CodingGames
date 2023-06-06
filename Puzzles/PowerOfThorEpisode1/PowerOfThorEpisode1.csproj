@@ -10,9 +10,4 @@
     <ProjectReference Include="..\PowerOfThor.Core\PowerOfThor.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Abstraction\Data\" />
-    <Folder Include="Abstraction\Game\" />
-  </ItemGroup>
-
 </Project>

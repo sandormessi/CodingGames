@@ -1,14 +1,17 @@
-﻿namespace PowerOfThorEpisode1.Implementation.Game;
+﻿using PowerOfThor.Core.Abstraction.InputReading;
+using PowerOfThorEpisode1.Abstraction.Data;
+using PowerOfThorEpisode1.Implementation.InputReading;
+using PowerOfThorEpisode1.Implementation.Logic;
+
+namespace PowerOfThorEpisode1.Implementation.Game;
 
 using CodingGames.Core.Abstraction;
 using CodingGames.Core.Implementation;
 using PowerOfThor.Core.Implementation.Game;
-using PowerOfThor.Core.Implementation.InputReading;
 using PowerOfThor.Core.Implementation.Logic;
 using PowerOfThor.Core.Abstraction.Game;
 using PowerOfThor.Core.Abstraction.Data;
 using PowerOfThor.Core.Abstraction.Logic;
-using PowerOfThor.Core.Abstraction.InputReading;
 
 public class PowerOfThorEpisode1Game : IPowerOfThorGame
 {
@@ -16,12 +19,12 @@ public class PowerOfThorEpisode1Game : IPowerOfThorGame
     {
         IInputReader inputReader = new InputReader();
         IOutputManager outputManager = new OutputManager();
-        IInitialGameDataReader initialGameDataReader = new InitialGameDataReader(inputReader);
-        IGameDataPerRoundReader gameDataPerRoundReader = new GameDataPerRoundReader(inputReader);
+        IInitialGameDataReader<InitialGameData> initialGameDataReader = new InitialGameDataReader(inputReader);
+        IGameDataPerRoundReader<GameDataPerRound> gameDataPerRoundReader = new GameDataPerRoundReader(inputReader);
         IActualMovementCalculator actualMovementCalculator = new ActualMovementCalculator();
 
-        IGameDataReader gameDataReader = new GameDataReader(initialGameDataReader, gameDataPerRoundReader);
-        IGameLogicManager gameLogicManager = new GameLogicManager(outputManager, actualMovementCalculator);
+        IGameDataReader<GameData> gameDataReader = new GameDataReader(initialGameDataReader, gameDataPerRoundReader);
+        IGameLogicManager<GameData, ActualMovement> gameLogicManager = new GameLogicManager(outputManager, actualMovementCalculator);
 
         int round = 1;
 
