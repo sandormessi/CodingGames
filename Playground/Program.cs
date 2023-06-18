@@ -1,14 +1,10 @@
-﻿using PowerOfThorEpisode1.Implementation.Game;
+﻿
+namespace Playground;
 
-namespace Playground
+internal class Program
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            var game = new PowerOfThorEpisode1Game();
-
-            game.Execute();
-        }
-    }
+   static void Main(string[] args)
+   {
+     
+   }
 }
