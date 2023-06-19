@@ -6,14 +6,16 @@ public class LabyrinthCellReader : ILabyrinthCellReader
 {
    public LabyrinthCell ReadLabyrinthCell(char cellData)
    {
-      return cellData switch
+      var labyrinthCellType = cellData switch
       {
-         '#' => new LabyrinthCell(LabyrinthCellType.Wall),
-         '.' => new LabyrinthCell(LabyrinthCellType.Empty),
-         'T' => new LabyrinthCell(LabyrinthCellType.MyPosition),
-         'C' => new LabyrinthCell(LabyrinthCellType.Target),
-         '?' => new LabyrinthCell(LabyrinthCellType.Unknown),
+         '#' => LabyrinthCellType.Wall,
+         '.' => LabyrinthCellType.Empty,
+         'T' => LabyrinthCellType.MyPosition,
+         'C' => LabyrinthCellType.Target,
+         '?' => LabyrinthCellType.Unknown,
          _ => throw new ArgumentOutOfRangeException("Invalid input data.")
       };
+
+      return new LabyrinthCell(labyrinthCellType);
    }
 }
