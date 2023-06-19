@@ -1,7 +1,6 @@
-﻿namespace TheLabyrinth
+﻿namespace TheLabyrinth;
+
+public interface IGameLogicManager
 {
-   public interface IGameLogicManager
-   {
-      void ExecuteLogic(InitialGameInfo initialGameInfo, RoundGameInfo roundGameInfo);
-   }
+   void ExecuteLogic(InitialGameInfo initialGameInfo, RoundGameInfo roundGameInfo);
 }

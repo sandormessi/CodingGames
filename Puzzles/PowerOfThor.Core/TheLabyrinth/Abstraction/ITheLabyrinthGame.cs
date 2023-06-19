@@ -1,7 +1,6 @@
-﻿namespace TheLabyrinth
+﻿namespace TheLabyrinth;
+
+public interface ITheLabyrinthGame
 {
-   public interface ITheLabyrinthGame
-   {
-      void StartGame();
-   }
+   void StartGame();
 }

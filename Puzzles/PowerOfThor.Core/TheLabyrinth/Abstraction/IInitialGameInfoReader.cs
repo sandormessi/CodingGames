@@ -1,7 +1,6 @@
-﻿namespace TheLabyrinth
+﻿namespace TheLabyrinth;
+
+public interface IInitialGameInfoReader
 {
-   public interface IInitialGameInfoReader
-   {
-      InitialGameInfo ReadInitialGameInfo();
-   }
+   InitialGameInfo ReadInitialGameInfo();
 }
