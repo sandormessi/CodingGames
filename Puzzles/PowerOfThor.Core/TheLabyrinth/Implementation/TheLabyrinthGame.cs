@@ -19,7 +19,7 @@ public class TheLabyrinthGame : ITheLabyrinthGame
 
       var initialGameInfo = initialGameInfoReader.ReadInitialGameInfo();
 
-      int round = 1;
+      var round = 1;
       while (true)
       {
          var roundGameInfo = roundInfoReader.ReadRoundGameInfo(initialGameInfo, round);
