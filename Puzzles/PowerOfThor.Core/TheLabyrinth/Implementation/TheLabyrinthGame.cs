@@ -10,7 +10,8 @@ public class TheLabyrinthGame : ITheLabyrinthGame
    public void StartGame()
    {
       IInputReader inputReader = new InputReader();
-      IGameLogicManager gameLogicManager = new GameLogicManager();
+      IInputManager inputManager = new InputManager();
+      IGameLogicManager gameLogicManager = new GameLogicManager(inputManager);
       IInitialGameInfoReader initialGameInfoReader = new InitialGameInfoReader(inputReader);
       ILabyrinthCellReader labyrinthCellReader = new LabyrinthCellReader();
       ILabyrinthReader labyrinthReader = new LabyrinthReader(labyrinthCellReader);
