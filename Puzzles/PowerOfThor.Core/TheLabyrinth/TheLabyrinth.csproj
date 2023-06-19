@@ -6,4 +6,8 @@
 	  <langversion>latest</langversion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\CodingGames.Core\CodingGames.Core.csproj" />
+  </ItemGroup>
+
 </Project>
