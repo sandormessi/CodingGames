@@ -3,14 +3,15 @@ using System.Collections.Generic;
 
 namespace TheLabyrinth;
 
-public class Labyrinth
+public class Labyrinth<TCell>
+   where TCell : LabyrinthCell
 {
-   public Labyrinth(IReadOnlyList<IReadOnlyList<LabyrinthCell>> cells)
+   public Labyrinth(IReadOnlyList<IReadOnlyList<TCell>> cells)
    {
       Cells = cells ?? throw new ArgumentNullException(nameof(cells));
    }
 
-   public LabyrinthCell this[Position position] => Cells[position.Y][position.X];
+   public TCell this[Position position] => Cells[position.Y][position.X];
 
-   public IReadOnlyList<IReadOnlyList<LabyrinthCell>> Cells { get; }
+   public IReadOnlyList<IReadOnlyList<TCell>> Cells { get; }
 }
