@@ -6,5 +6,5 @@ namespace TheLabyrinth;
 
 public interface ILabyrinthCellReader
 {
-   LabyrinthCell ReadLabyrinthCell(char cellData);
+   LabyrinthCell ReadLabyrinthCell(char cellData, int rowIndex, int columnIndex);
 }

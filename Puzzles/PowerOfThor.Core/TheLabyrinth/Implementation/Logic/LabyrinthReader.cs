@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class LabyrinthReader : ILabyrinthReader
 {
@@ -19,18 +20,11 @@ public class LabyrinthReader : ILabyrinthReader
          throw new ArgumentNullException(nameof(labyrinthCellStrings));
       }
 
-      List<IReadOnlyList<LabyrinthCell>> cells = new();
-      foreach (var labyrinthCellString in labyrinthCellStrings)
-      {
-         List<LabyrinthCell> actualLabyrinthRow = new();
-         foreach (var cellData in labyrinthCellString)
-         {
-            var labyrinthCell = labyrinthCellReader.ReadLabyrinthCell(cellData);
-            actualLabyrinthRow.Add(labyrinthCell);
-         }
-
-         cells.Add(actualLabyrinthRow);
-      }
+      var cellStrings = labyrinthCellStrings.ToArray();
+      List<IReadOnlyList<LabyrinthCell>> cells = cellStrings
+         .Select((labyrinthCellString, rowIndex) => labyrinthCellString.Select((cellData, columnIndex) => labyrinthCellReader.ReadLabyrinthCell(cellData, rowIndex, columnIndex)).ToList())
+         .Cast<IReadOnlyList<LabyrinthCell>>()
+         .ToList();
 
       return new Labyrinth(cells);
    }

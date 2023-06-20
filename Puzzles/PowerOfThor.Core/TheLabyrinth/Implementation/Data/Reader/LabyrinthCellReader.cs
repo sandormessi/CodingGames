@@ -4,7 +4,7 @@ using System;
 
 public class LabyrinthCellReader : ILabyrinthCellReader
 {
-   public LabyrinthCell ReadLabyrinthCell(char cellData)
+   public LabyrinthCell ReadLabyrinthCell(char cellData, int rowIndex, int columnIndex)
    {
       var labyrinthCellType = cellData switch
       {
@@ -16,6 +16,6 @@ public class LabyrinthCellReader : ILabyrinthCellReader
          _ => throw new ArgumentOutOfRangeException("Invalid input data.")
       };
 
-      return new LabyrinthCell(labyrinthCellType);
+      return new LabyrinthCell(labyrinthCellType, new Position(columnIndex, rowIndex));
    }
 }
