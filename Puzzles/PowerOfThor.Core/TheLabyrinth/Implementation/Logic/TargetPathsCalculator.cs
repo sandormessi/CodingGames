@@ -28,6 +28,9 @@ public class TargetPathsCalculator : ITargetPathsCalculator
       var pathToTargetCell = labyrinthPathFinder.FindPath(labyrinth, targetCells.ActualCell, targetCells.TargetCell1);
       var pathToStartCell = labyrinthPathFinder.FindPath(labyrinth, targetCells.ActualCell, targetCells.TargetCell2);
 
-      return new TargetPaths(pathToTargetCell, pathToStartCell);
+      var pathToTarget1 = new TargetPath(pathToTargetCell, 0);
+      var pathToTarget2 = new TargetPath(pathToStartCell, 0);
+
+      return new TargetPaths(pathToTarget1, pathToTarget2);
    }
 }
