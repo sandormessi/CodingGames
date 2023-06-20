@@ -16,7 +16,7 @@ public class LabyrinthExplorer : ILabyrinthExplorer
       this.cellFinder = cellFinder ?? throw new ArgumentNullException(nameof(cellFinder));
    }
 
-   public TargetCells? ExploreLabyrinth(Labyrinth labyrinth, InitialGameInfo initialGameInfo)
+   public TargetCells ExploreLabyrinth(ExtendedLabyrinth labyrinth, InitialGameInfo initialGameInfo)
    {
       if (labyrinth == null)
       {

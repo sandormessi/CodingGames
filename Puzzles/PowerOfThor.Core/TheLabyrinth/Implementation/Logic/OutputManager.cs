@@ -2,7 +2,7 @@
 
 using System;
 
-public class InputManager : IInputManager
+public class OutputManager : IOutputManager
 {
    public void Move(Direction direction)
    {

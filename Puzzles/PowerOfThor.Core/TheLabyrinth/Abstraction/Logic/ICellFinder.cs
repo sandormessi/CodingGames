@@ -2,9 +2,9 @@
 
 public interface ICellFinder
 {
-   LabyrinthCell? GetTargetCell(Labyrinth labyrinth);
+   ExtendedLabyrinthCell? GetTargetCell(ExtendedLabyrinth labyrinth);
 
-   bool IsTargetVisible(Labyrinth labyrinth);
+   bool IsTargetVisible(ExtendedLabyrinth labyrinth);
 
-   LabyrinthCell GetActualPositionCell(Labyrinth labyrinth);
+   ExtendedLabyrinthCell GetActualPositionCell(ExtendedLabyrinth labyrinth);
 }

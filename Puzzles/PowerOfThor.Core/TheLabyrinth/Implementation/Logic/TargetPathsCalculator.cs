@@ -13,7 +13,7 @@ public class TargetPathsCalculator : ITargetPathsCalculator
       this.labyrinthPathFinder = labyrinthPathFinder ?? throw new ArgumentNullException(nameof(labyrinthPathFinder));
    }
 
-   public TargetPaths CalculateTargetPaths(Labyrinth labyrinth, TargetCells targetCells)
+   public TargetPaths CalculateTargetPaths(ExtendedLabyrinth labyrinth, TargetCells targetCells)
    {
       if (labyrinth == null)
       {

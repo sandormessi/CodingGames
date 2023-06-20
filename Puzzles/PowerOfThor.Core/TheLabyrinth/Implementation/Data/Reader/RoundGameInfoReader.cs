@@ -5,16 +5,21 @@ using System.Collections.Generic;
 
 using CodingGames.Core.Abstraction;
 
+using TheLabyrinth.Abstraction.Logic;
+
 public class RoundGameInfoReader : IRoundGameInfoReader
 {
    private readonly IInputReader inputReader;
 
    private readonly ILabyrinthReader labyrinthReader;
 
-   public RoundGameInfoReader(IInputReader inputReader, ILabyrinthReader labyrinthReader)
+   private readonly IExtendedLabyrinthReader extendedLabyrinthReader;
+
+   public RoundGameInfoReader(IInputReader inputReader, ILabyrinthReader labyrinthReader, IExtendedLabyrinthReader extendedLabyrinthReader)
    {
       this.inputReader = inputReader ?? throw new ArgumentNullException(nameof(inputReader));
       this.labyrinthReader = labyrinthReader ?? throw new ArgumentNullException(nameof(labyrinthReader));
+      this.extendedLabyrinthReader = extendedLabyrinthReader ?? throw new ArgumentNullException(nameof(extendedLabyrinthReader));
    }
 
    public RoundGameInfo ReadRoundGameInfo(InitialGameInfo initialGameInfo, int round)
@@ -47,6 +52,8 @@ public class RoundGameInfoReader : IRoundGameInfoReader
 
       var labyrinth = labyrinthReader.ReadLabyrinth(labyrinthRowData);
 
-      return new RoundGameInfo(myPosition, round, labyrinth);
+      var extendedLabyrinth = extendedLabyrinthReader.ReadExtendedLabyrinth(labyrinth);
+
+      return new RoundGameInfo(myPosition, round, extendedLabyrinth);
    }
 }

@@ -4,5 +4,5 @@ using TheLabyrinth.Abstraction.Data;
 
 public interface ITargetPathsCalculator
 {
-   TargetPaths CalculateTargetPaths(Labyrinth labyrinth, TargetCells targetCells);
+   TargetPaths CalculateTargetPaths(ExtendedLabyrinth labyrinth, TargetCells targetCells);
 }

@@ -13,7 +13,7 @@ public class LabyrinthReader : ILabyrinthReader
       this.labyrinthCellReader = labyrinthCellReader ?? throw new ArgumentNullException(nameof(labyrinthCellReader));
    }
 
-   public Labyrinth ReadLabyrinth(IEnumerable<string> labyrinthCellStrings)
+   public InitialLabyrinth ReadLabyrinth(IEnumerable<string> labyrinthCellStrings)
    {
       if (labyrinthCellStrings == null)
       {
@@ -26,6 +26,6 @@ public class LabyrinthReader : ILabyrinthReader
          .Cast<IReadOnlyList<LabyrinthCell>>()
          .ToList();
 
-      return new Labyrinth(cells);
+      return new InitialLabyrinth(cells);
    }
 }

@@ -35,7 +35,7 @@ public class GameLogicManager : IGameLogicManager
 
       if (targetCells is not null)
       {
-         movementManager.Move(targetCells);
+         movementManager.Move(roundGameInfo.Labyrinth, targetCells);
       }
    }
 }

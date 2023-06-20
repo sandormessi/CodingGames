@@ -4,5 +4,5 @@ namespace TheLabyrinth;
 
 public interface ILabyrinthReader
 {
-   Labyrinth ReadLabyrinth(IEnumerable<string> labyrinthCellStrings);
+   InitialLabyrinth ReadLabyrinth(IEnumerable<string> labyrinthCellStrings);
 }

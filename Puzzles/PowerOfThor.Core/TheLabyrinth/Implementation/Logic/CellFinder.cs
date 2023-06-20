@@ -6,7 +6,7 @@ using System.Linq;
 
 public class CellFinder : ICellFinder
 {
-   public LabyrinthCell? GetTargetCell(Labyrinth labyrinth)
+   public ExtendedLabyrinthCell? GetTargetCell(ExtendedLabyrinth labyrinth)
    {
       if (labyrinth == null)
       {
@@ -18,17 +18,12 @@ public class CellFinder : ICellFinder
       return foundTargetCell;
    }
 
-   private static IEnumerable<LabyrinthCell> GetAllCells(Labyrinth labyrinth)
-   {
-      return labyrinth.Cells.SelectMany(x => x);
-   }
-
-   public bool IsTargetVisible(Labyrinth labyrinth)
+   public bool IsTargetVisible(ExtendedLabyrinth labyrinth)
    {
       return GetTargetCell(labyrinth) is not null;
    }
 
-   public LabyrinthCell GetActualPositionCell(Labyrinth labyrinth)
+   public ExtendedLabyrinthCell GetActualPositionCell(ExtendedLabyrinth labyrinth)
    {
       if (labyrinth == null)
       {
@@ -38,5 +33,10 @@ public class CellFinder : ICellFinder
       var foundMyPositionCell = GetAllCells(labyrinth).First(x => x.Type == LabyrinthCellType.MyPosition);
 
       return foundMyPositionCell;
+   }
+
+   private static IEnumerable<ExtendedLabyrinthCell> GetAllCells(ExtendedLabyrinth labyrinth)
+   {
+      return labyrinth.Cells.SelectMany(x => x);
    }
 }

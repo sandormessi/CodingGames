@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TheLabyrinth;
+﻿namespace TheLabyrinth;
 
 using CodingGames.Core.Abstraction.Data;
 
 public class RoundGameInfo : GameDataPerRoundBase
 {
-   public RoundGameInfo(Position myPosition, int round, Labyrinth labyrinth)
+   public RoundGameInfo(Position myPosition, int round, ExtendedLabyrinth labyrinth)
       : base(round)
    {
       MyPosition = myPosition;
@@ -17,5 +13,5 @@ public class RoundGameInfo : GameDataPerRoundBase
 
    public Position MyPosition { get; }
 
-   public Labyrinth Labyrinth { get; }
+   public ExtendedLabyrinth Labyrinth { get; }
 }

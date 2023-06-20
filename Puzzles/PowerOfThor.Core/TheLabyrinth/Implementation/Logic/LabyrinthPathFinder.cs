@@ -6,7 +6,7 @@ using TheLabyrinth.Abstraction.Data;
 
 public class LabyrinthPathFinder : ILabyrinthPathFinder
 {
-   public LabyrinthPath FindPath(Labyrinth labyrinth, LabyrinthCell startCell, LabyrinthCell targetCell)
+   public LabyrinthPath FindPath(ExtendedLabyrinth labyrinth, ExtendedLabyrinthCell startCell, ExtendedLabyrinthCell targetCell)
    {
       if (labyrinth == null)
       {

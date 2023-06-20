@@ -9,23 +9,23 @@ public class TheLabyrinthGame : ITheLabyrinthGame
 {
    public void StartGame()
    {
-      IInputReader inputReader = new InputReader();
-      IInputManager inputManager = new InputManager();
-      IGameLogicManager gameLogicManager = new GameLogicManager(inputManager);
-      IInitialGameInfoReader initialGameInfoReader = new InitialGameInfoReader(inputReader);
-      ILabyrinthCellReader labyrinthCellReader = new LabyrinthCellReader();
-      ILabyrinthReader labyrinthReader = new LabyrinthReader(labyrinthCellReader);
-      IRoundGameInfoReader roundInfoReader = new RoundGameInfoReader(inputReader, labyrinthReader);
+      //IInputReader inputReader = new InputReader();
+      //IOutputManager outputManager = new OutputManager();
+      //IGameLogicManager gameLogicManager = new GameLogicManager(outputManager);
+      //IInitialGameInfoReader initialGameInfoReader = new InitialGameInfoReader(inputReader);
+      //ILabyrinthCellReader labyrinthCellReader = new LabyrinthCellReader();
+      //ILabyrinthReader labyrinthReader = new LabyrinthReader(labyrinthCellReader);
+      //IRoundGameInfoReader roundInfoReader = new RoundGameInfoReader(inputReader, labyrinthReader);
 
-      var initialGameInfo = initialGameInfoReader.ReadInitialGameInfo();
+      //var initialGameInfo = initialGameInfoReader.ReadInitialGameInfo();
 
-      var round = 1;
-      while (true)
-      {
-         var roundGameInfo = roundInfoReader.ReadRoundGameInfo(initialGameInfo, round);
-         gameLogicManager.ExecuteLogic(initialGameInfo, roundGameInfo);
+      //var round = 1;
+      //while (true)
+      //{
+      //   var roundGameInfo = roundInfoReader.ReadRoundGameInfo(initialGameInfo, round);
+      //   gameLogicManager.ExecuteLogic(initialGameInfo, roundGameInfo);
 
-         round++;
-      }
+      //   round++;
+      //}
    }
 }
