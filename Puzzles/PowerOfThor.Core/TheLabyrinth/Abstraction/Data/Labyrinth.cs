@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TheLabyrinth;
 
-public class Labyrinth<TCell>
+public abstract class Labyrinth<TCell>
    where TCell : LabyrinthCell
 {
    public Labyrinth(IReadOnlyList<IReadOnlyList<TCell>> cells)
