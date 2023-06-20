@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TheLabyrinth.Abstraction.Data.Reader;
+﻿namespace TheLabyrinth.Abstraction.Data.Reader;
 
 public interface IExtendedLabyrinthCellReader
 {
