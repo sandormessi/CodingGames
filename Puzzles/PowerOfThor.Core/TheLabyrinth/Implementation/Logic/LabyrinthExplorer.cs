@@ -8,9 +8,12 @@ public class LabyrinthExplorer : ILabyrinthExplorer
 {
    private readonly IOutputManager outputManager;
 
-   public LabyrinthExplorer(IOutputManager outputManager)
+   private readonly ICellFinder cellFinder;
+
+   public LabyrinthExplorer(IOutputManager outputManager, ICellFinder cellFinder)
    {
       this.outputManager = outputManager ?? throw new ArgumentNullException(nameof(outputManager));
+      this.cellFinder = cellFinder ?? throw new ArgumentNullException(nameof(cellFinder));
    }
 
    public TargetCells? ExploreLabyrinth(Labyrinth labyrinth, InitialGameInfo initialGameInfo)
