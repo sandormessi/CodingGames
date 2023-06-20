@@ -13,5 +13,7 @@ public abstract class Labyrinth<TCell>
 
    public TCell this[Position position] => Cells[position.Y][position.X];
 
+   public TCell this[int x, int y] => Cells[y][x];
+
    public IReadOnlyList<IReadOnlyList<TCell>> Cells { get; }
 }
