@@ -2,15 +2,21 @@
 
 using System;
 
-using TheLabyrinth.Abstraction;
+using TheLabyrinth.Abstraction.Data;
+using TheLabyrinth.Abstraction.Logic;
 
 public class GameLogicManager : IGameLogicManager
 {
-   private readonly IInputManager inputManager;
+   private readonly ILabyrinthExplorer labyrinthExplorer;
 
-   public GameLogicManager(IInputManager inputManager)
+   private readonly IMovementManager movementManager;
+
+   private TargetCells? targetCells;
+
+   public GameLogicManager(ILabyrinthExplorer labyrinthExplorer, IMovementManager movementManager)
    {
-      this.inputManager = inputManager ?? throw new ArgumentNullException(nameof(inputManager));
+      this.labyrinthExplorer = labyrinthExplorer ?? throw new ArgumentNullException(nameof(labyrinthExplorer));
+      this.movementManager = movementManager ?? throw new ArgumentNullException(nameof(movementManager));
    }
 
    public void ExecuteLogic(InitialGameInfo initialGameInfo, RoundGameInfo roundGameInfo)
@@ -25,6 +31,11 @@ public class GameLogicManager : IGameLogicManager
          throw new ArgumentNullException(nameof(roundGameInfo));
       }
 
-      throw new NotImplementedException();
+      targetCells ??= labyrinthExplorer.ExploreLabyrinth(roundGameInfo.Labyrinth, initialGameInfo);
+
+      if (targetCells is not null)
+      {
+         movementManager.Move(targetCells);
+      }
    }
 }
