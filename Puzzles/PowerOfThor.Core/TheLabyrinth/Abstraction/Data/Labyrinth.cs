@@ -10,5 +10,7 @@ public class Labyrinth
       Cells = cells ?? throw new ArgumentNullException(nameof(cells));
    }
 
+   public LabyrinthCell this[Position position] => Cells[position.Y][position.X];
+
    public IReadOnlyList<IReadOnlyList<LabyrinthCell>> Cells { get; }
 }
