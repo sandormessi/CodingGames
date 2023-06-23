@@ -15,6 +15,10 @@ public class RoundGameInfoReader : IRoundGameInfoReader
 
    private readonly IExtendedLabyrinthReader extendedLabyrinthReader;
 
+   private bool isFirstRead = true;
+
+   private Position? startPosition;
+
    public RoundGameInfoReader(IInputReader inputReader, ILabyrinthReader labyrinthReader, IExtendedLabyrinthReader extendedLabyrinthReader)
    {
       this.inputReader = inputReader ?? throw new ArgumentNullException(nameof(inputReader));
@@ -54,6 +58,12 @@ public class RoundGameInfoReader : IRoundGameInfoReader
 
       var extendedLabyrinth = extendedLabyrinthReader.ReadExtendedLabyrinth(labyrinth);
 
-      return new RoundGameInfo(myPosition, round, extendedLabyrinth);
+      if (isFirstRead)
+      {
+         startPosition = myPosition;
+         isFirstRead = false;
+      }
+
+      return new RoundGameInfo(myPosition, round, extendedLabyrinth, startPosition);
    }
 }
