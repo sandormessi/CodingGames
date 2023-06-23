@@ -4,6 +4,8 @@ using System;
 
 using CodingGames.Core.Abstraction;
 
+using TheLabyrinth.Abstraction.Data;
+
 public class InitialGameInfoReader : IInitialGameInfoReader
 {
    private readonly IInputReader inputReader;
@@ -23,6 +25,14 @@ public class InitialGameInfoReader : IInitialGameInfoReader
       var columnCount = int.Parse(portions[1]);
       var alarmCountdown = int.Parse(portions[2]);
 
-      return new InitialGameInfo(rowCount, columnCount, alarmCountdown);
+      var gameRules = GetGameRules();
+
+      return new InitialGameInfo(rowCount, columnCount, alarmCountdown, gameRules);
+   }
+
+   private static GameRules GetGameRules()
+   {
+      GameRules gameRules = new(5);
+      return gameRules;
    }
 }

@@ -1,8 +1,10 @@
 ﻿using System;
 
+using TheLabyrinth.Abstraction.Data;
+
 public class InitialGameInfo
 {
-   public InitialGameInfo(int rowCount, int columnCount, int alarmCountdown)
+   public InitialGameInfo(int rowCount, int columnCount, int alarmCountdown, GameRules rules)
    {
       if (rowCount <= 0)
       {
@@ -22,6 +24,7 @@ public class InitialGameInfo
       RowCount = rowCount;
       ColumnCount = columnCount;
       AlarmCountdown = alarmCountdown;
+      Rules = rules ?? throw new ArgumentNullException(nameof(rules));
    }
 
    public int RowCount { get; }
@@ -29,4 +32,6 @@ public class InitialGameInfo
    public int ColumnCount { get; }
 
    public int AlarmCountdown { get; }
+
+   public GameRules Rules { get; }
 }
