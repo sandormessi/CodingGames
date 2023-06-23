@@ -31,7 +31,7 @@ public class GameLogicManager : IGameLogicManager
          throw new ArgumentNullException(nameof(roundGameInfo));
       }
 
-      targetCells ??= labyrinthExplorer.ExploreLabyrinth(roundGameInfo.Labyrinth, initialGameInfo);
+      targetCells ??= labyrinthExplorer.ExploreLabyrinth(roundGameInfo.Labyrinth, initialGameInfo, roundGameInfo);
 
       if (targetCells is not null)
       {
