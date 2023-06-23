@@ -1,6 +1,7 @@
 ﻿namespace TheLabyrinth.Abstraction.Logic;
 
 using System;
+using System.Collections.Generic;
 
 using TheLabyrinth.Abstraction.Data;
 
@@ -12,12 +13,15 @@ public class LabyrinthExplorer : ILabyrinthExplorer
 
    private readonly ICellFinder cellFinder;
 
+   private readonly IMovementAnalyzer movementAnalyzer;
+
    private TargetCells? targetCells;
 
-   public LabyrinthExplorer(IOutputManager outputManager, ICellFinder cellFinder)
+   public LabyrinthExplorer(IOutputManager outputManager, ICellFinder cellFinder, IMovementAnalyzer movementAnalyzer)
    {
       this.outputManager = outputManager ?? throw new ArgumentNullException(nameof(outputManager));
       this.cellFinder = cellFinder ?? throw new ArgumentNullException(nameof(cellFinder));
+      this.movementAnalyzer = movementAnalyzer ?? throw new ArgumentNullException(nameof(movementAnalyzer));
    }
 
    public TargetCells? ExploreLabyrinth(ExtendedLabyrinth labyrinth, InitialGameInfo initialGameInfo, RoundGameInfo roundGameInfo)
@@ -55,6 +59,7 @@ public class LabyrinthExplorer : ILabyrinthExplorer
 
    private void Move(ExtendedLabyrinth labyrinth, InitialGameInfo initialGameInfo, RoundGameInfo roundGameInfo)
    {
-      throw new NotImplementedException();
+      IDictionary<Direction, MovementAnalysisResult> analysisResult = movementAnalyzer.Analyze(labyrinth, labyrinth[roundGameInfo.MyPosition], TODO);
+
    }
 }
